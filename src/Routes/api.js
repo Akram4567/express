@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const blogController = require('../Controllers/blogController')
-const commentController = require('../Controllers/commentController')
-const messageController = require('../Controllers/messageController')
-const portfolioController = require('../Controllers/portfolioController')
+const DB = require('../models/DB')
+const userController = require('../Controllers/userController')
+const adminController = require('../Controllers/adminController')
+const subAdminController = require('../Controllers/subAdminController')
+const postController = require('../Controllers/postController')
 const productController = require('../Controllers/productController')
 
 // const blogDetailsController = require('../Controllers/blogDetailsController')
@@ -15,38 +16,43 @@ const productController = require('../Controllers/productController')
 
 
 
-
-
-// blogController routes
-router.get('/createBlog', blogController.create)
-router.get('/readBlog', blogController.read)
-router.get('/deleteBlog', blogController.delete)
-router.get('/updateBlog', blogController.update)
+//mongodb route
+router.post('/product', DB.saveData)
+router.get('/product',DB.getdata)
 
 
 
 
-// commentController routes
-router.get('/createComment', commentController.create)
-router.get('/readComment', commentController.read)
-router.get('/deleteComment', commentController.delete)
-router.get('/updateComment', commentController.update)
+// userController routes
+router.get('/createUser', userController.create)
+router.get('/readUser', userController.read)
+router.get('/deleteUser', userController.delete)
+router.get('/updateUser', userController.update)
 
 
 
-// messageController routes
-router.get('/createMessage', messageController.create)
-router.get('/readMessage', messageController.read)
-router.get('/deleteMessage', messageController.delete)
-router.get('/updateMessage', messageController.update)
+
+// adminController routes
+router.get('/createAdmin', adminController.create)
+router.get('/readAdmin', adminController.read)
+router.get('/deleteAdmin', adminController.delete)
+router.get('/updateAdmin', adminController.update)
 
 
 
-// portfolioController routes
-router.get('/createPortfolio', portfolioController.create)
-router.get('/readPortfolio', portfolioController.read)
-router.get('/deletePortfolio', portfolioController.delete)
-router.get('/updatePortfolio', portfolioController.update)
+// subAdminController routes
+router.get('/createSubAdmin', subAdminController.create)
+router.get('/readSubAdmin', subAdminController.read)
+router.get('/deleteSubAdmin', subAdminController.delete)
+router.get('/updateSubAdmin', subAdminController.update)
+
+
+
+// postController routes
+router.get('/createPost', postController.create)
+router.get('/readPost', postController.read)
+router.get('/deletePost', postController.delete)
+router.get('/updatePost', postController.update)
 
 
 
